@@ -1,5 +1,5 @@
 <script setup>
-import SearchContainer from "./components/homepage/SearchContainer.vue";
+import SearchContainer from "./components/SearchContainer.vue";
 </script>
 
 <template>
