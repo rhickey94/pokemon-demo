@@ -1,15 +1,24 @@
 <script setup>
-defineProps({
+import { computed } from "vue";
+
+const props = defineProps({
+  pokemonId: String,
   pokemonName: String,
   sprite: String,
+});
+
+const generateDetailUrl = computed(() => {
+  return `/pokemon/${props.pokemonId}`;
 });
 </script>
 
 <template>
-  <section class="pokemon-content">
-    <img :src="sprite" alt="" />
-    <div class="pokemon-name">{{ pokemonName }}</div>
-  </section>
+  <router-link :to="generateDetailUrl">
+    <section class="pokemon-content">
+      <img class="pokemon-sprite" :src="sprite" alt="" />
+      <div class="pokemon-name">{{ pokemonName }}</div>
+    </section>
+  </router-link>
 </template>
 
 <style>
@@ -32,5 +41,9 @@ defineProps({
 .pokemon-type {
   font-size: 0.65rem;
   text-align: center;
+}
+
+.pokemon-sprite {
+  display: block;
 }
 </style>
