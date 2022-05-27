@@ -39,6 +39,7 @@ onMounted(() => fetchPokemonList());
     <ContainerItem
       v-for="pokemon in pokemonCollection"
       :key="pokemon.id"
+      :pokemon-id="pokemon.id"
       :pokemon-name="pokemon.name"
       :sprite="pokemon.sprite"
     />
