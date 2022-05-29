@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from "vue";
-import { apis } from "../store/apis.mjs";
+// import { apis } from "../store/apis.js";
 import SearchContainer from "../components/SearchContainer.vue";
 // import SearchBar from "@/components/SearchBar.vue";
 
-const apiUrl = ref(apis.baseUrl);
+const apiUrl = ref("https://pokeapi.co/api/v2/pokemon/?limit=30");
 // const searchUrl = ref("");
 
 // function setSearchUrl(url) {

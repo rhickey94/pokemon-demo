@@ -1,5 +1,5 @@
 <script setup>
-import { apis } from "../store/apis.mjs";
+// import { apis } from "../store/apis.js";
 import { ref, computed, onMounted } from "vue";
 
 const props = defineProps({
@@ -10,7 +10,7 @@ const props = defineProps({
 const pokemonData = ref(null);
 
 const pokemonUrl = computed(() => {
-  return `${apis.baseUrl}${props.id}`;
+  return `${"https://pokeapi.co/api/v2/pokemon/"}${props.id}`;
 });
 
 function fetchData(url) {
