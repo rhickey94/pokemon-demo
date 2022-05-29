@@ -10,16 +10,12 @@ const pokemonCollection = ref([]);
 const nextUrl = ref("");
 const currentUrl = ref("");
 
-function createPokemon(id, name) {
+function createPokemon(id, name, url) {
   return {
     id: id,
     name: name,
-    sprite: generateSpriteUrl(id),
+    url: url,
   };
-}
-
-function generateSpriteUrl(id) {
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 }
 
 function fetchPokemonList() {
@@ -29,9 +25,15 @@ function fetchPokemonList() {
       nextUrl.value = data.next;
       data.results.forEach((pokemon) => {
         const pokemonId = pokemon.url.split("/")[6];
-        pokemonCollection.value.push(createPokemon(pokemonId, pokemon.name));
+        pokemonCollection.value.push(
+          createPokemon(pokemonId, pokemon.name, pokemon.url)
+        );
       });
     });
+}
+
+function setSearchUrl(url) {
+  console.log(url);
 }
 
 onBeforeMount(() => {
@@ -47,7 +49,7 @@ onBeforeMount(() => {
       :key="pokemon.id"
       :pokemon-id="pokemon.id"
       :pokemon-name="pokemon.name"
-      :sprite="pokemon.sprite"
+      @click="setSearchUrl(pokemon.url)"
     />
   </section>
 </template>

@@ -1,8 +1,14 @@
 <script setup>
-defineProps({
+import { computed } from "vue";
+import { apis } from "../store/apis";
+
+const props = defineProps({
   pokemonId: String,
   pokemonName: String,
-  sprite: String,
+});
+
+const spriteUrl = computed(() => {
+  return `${apis.imageUrl}${props.pokemonId}.png`;
 });
 </script>
 
@@ -14,7 +20,7 @@ defineProps({
     }"
   >
     <section class="pokemon-content">
-      <img class="pokemon-sprite" :src="sprite" alt="" />
+      <img class="pokemon-sprite" :src="spriteUrl" alt="" />
       <div class="pokemon-name">{{ pokemonName }}</div>
     </section>
   </router-link>
