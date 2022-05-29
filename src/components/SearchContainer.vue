@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onBeforeMount } from "vue";
 import ContainerItem from "./ContainerItem.vue";
+import ScrollTrigger from "./common/ScrollTrigger.vue";
 
 const props = defineProps({
   apiUrl: String,
@@ -10,28 +11,36 @@ const pokemonCollection = ref([]);
 const nextUrl = ref("");
 const currentUrl = ref("");
 
-function createPokemon(id, name) {
+function createPokemon(id, name, url) {
   return {
     id: id,
     name: name,
-    sprite: generateSpriteUrl(id),
+    url: url,
   };
 }
 
-function generateSpriteUrl(id) {
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+async function fetchPokemonList() {
+  const response = await fetch(currentUrl.value);
+  const data = await response.json();
+  nextUrl.value = data.next;
+
+  data.results.forEach((pokemon) => {
+    const pokemonId = pokemon.url.split("/")[6];
+    pokemonCollection.value.push(
+      createPokemon(pokemonId, pokemon.name, pokemon.url)
+    );
+  });
 }
 
-function fetchPokemonList() {
-  fetch(currentUrl.value)
-    .then((response) => response.json())
-    .then((data) => {
-      nextUrl.value = data.next;
-      data.results.forEach((pokemon) => {
-        const pokemonId = pokemon.url.split("/")[6];
-        pokemonCollection.value.push(createPokemon(pokemonId, pokemon.name));
-      });
-    });
+async function loadMore() {
+  if (nextUrl.value) {
+    currentUrl.value = nextUrl.value;
+    fetchPokemonList();
+  }
+}
+
+function setSearchUrl(url) {
+  console.log(url);
 }
 
 onBeforeMount(() => {
@@ -47,8 +56,9 @@ onBeforeMount(() => {
       :key="pokemon.id"
       :pokemon-id="pokemon.id"
       :pokemon-name="pokemon.name"
-      :sprite="pokemon.sprite"
+      @click="setSearchUrl(pokemon.url)"
     />
+    <ScrollTrigger @trigger-intersected="loadMore" />
   </section>
 </template>
 

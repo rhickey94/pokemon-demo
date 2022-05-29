@@ -1,20 +1,21 @@
 <script setup>
 import { ref } from "vue";
+import { apis } from "../store/apis";
 import SearchContainer from "@/components/SearchContainer.vue";
-import SearchBar from "@/components/SearchBar.vue";
+// import SearchBar from "@/components/SearchBar.vue";
 
-const apiUrl = ref("https://pokeapi.co/api/v2/pokemon/");
-const searchUrl = ref("");
+const apiUrl = ref(apis.baseUrl);
+// const searchUrl = ref("");
 
-function setSearchUrl(url) {
-  searchUrl.value = url;
-}
+// function setSearchUrl(url) {
+//   searchUrl.value = url;
+// }
 </script>
 
 <template>
   <div id="home-container">
     <h1 class="heading">Pokemon Demo</h1>
-    <SearchBar @set-search-url="setSearchUrl" :api-url="apiUrl" />
+    <!-- <SearchBar @set-search-url="setSearchUrl" :api-url="apiUrl" /> -->
     <SearchContainer :api-url="apiUrl" />
   </div>
 </template>
