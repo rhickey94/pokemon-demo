@@ -1,11 +1,14 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onBeforeMount } from "vue";
 import ContainerItem from "./ContainerItem.vue";
 
-const API_URL = "https://pokeapi.co/api/v2/pokemon";
+const props = defineProps({
+  apiUrl: String,
+});
 
 const pokemonCollection = ref([]);
 const nextUrl = ref("");
+const currentUrl = ref("");
 
 function createPokemon(id, name) {
   return {
@@ -20,7 +23,7 @@ function generateSpriteUrl(id) {
 }
 
 function fetchPokemonList() {
-  fetch(API_URL)
+  fetch(currentUrl.value)
     .then((response) => response.json())
     .then((data) => {
       nextUrl.value = data.next;
@@ -31,7 +34,10 @@ function fetchPokemonList() {
     });
 }
 
-onMounted(() => fetchPokemonList());
+onBeforeMount(() => {
+  currentUrl.value = props.apiUrl;
+  fetchPokemonList();
+});
 </script>
 
 <template>

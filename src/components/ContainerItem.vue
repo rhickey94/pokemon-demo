@@ -1,19 +1,18 @@
 <script setup>
-import { computed } from "vue";
-
-const props = defineProps({
+defineProps({
   pokemonId: String,
   pokemonName: String,
   sprite: String,
 });
-
-const generateDetailUrl = computed(() => {
-  return `/pokemon/${props.pokemonId}`;
-});
 </script>
 
 <template>
-  <router-link :to="generateDetailUrl">
+  <router-link
+    :to="{
+      name: 'pokemon.detail',
+      params: { id: pokemonId, name: pokemonName },
+    }"
+  >
     <section class="pokemon-content">
       <img class="pokemon-sprite" :src="sprite" alt="" />
       <div class="pokemon-name">{{ pokemonName }}</div>
