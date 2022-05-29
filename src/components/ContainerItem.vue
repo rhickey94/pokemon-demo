@@ -8,7 +8,9 @@ const props = defineProps({
 });
 
 const spriteUrl = computed(() => {
-  return `${"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"}${props.pokemonId}.png`;
+  return `${"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"}${
+    props.pokemonId
+  }.png`;
 });
 </script>
 
