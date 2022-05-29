@@ -7,7 +7,7 @@ const trigger = ref(null);
 const observerOptions = {
   type: Object,
   default: {
-    threshold: "0",
+    threshold: "1",
   },
 };
 
@@ -32,7 +32,13 @@ onDeactivated(() => {
 </script>
 
 <template>
-  <div ref="trigger"></div>
+  <div class="scroll-trigger" ref="trigger"></div>
 </template>
 
-<style></style>
+<style>
+.scroll-trigger {
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+</style>
