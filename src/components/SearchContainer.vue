@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onBeforeMount } from "vue";
 import ContainerItem from "./ContainerItem.vue";
-// import ScrollTrigger from "./common/ScrollTrigger.vue";
+import ScrollTrigger from "./common/ScrollTrigger.vue";
 
 const props = defineProps({
   apiUrl: String,
@@ -32,12 +32,12 @@ async function fetchPokemonList() {
   });
 }
 
-// async function loadMore() {
-//   if (nextUrl.value) {
-//     currentUrl.value = nextUrl.value;
-//     fetchPokemonList();
-//   }
-// }
+async function loadMore() {
+  if (nextUrl.value) {
+    currentUrl.value = nextUrl.value;
+    fetchPokemonList();
+  }
+}
 
 function setSearchUrl(url) {
   console.log(url);
@@ -58,7 +58,7 @@ onBeforeMount(() => {
       :pokemon-name="pokemon.name"
       @click="setSearchUrl(pokemon.url)"
     />
-    <!-- <ScrollTrigger @trigger-intersected="loadMore" /> -->
+    <ScrollTrigger @trigger-intersected="loadMore" />
   </section>
 </template>
 

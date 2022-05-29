@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-// import { apis } from "../store/apis.js";
+import { apis } from "../store/apis.js";
 
 const props = defineProps({
   pokemonId: String,
@@ -8,9 +8,7 @@ const props = defineProps({
 });
 
 const spriteUrl = computed(() => {
-  return `${"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"}${
-    props.pokemonId
-  }.png`;
+  return `${apis.imageUrl}${props.pokemonId}.png`;
 });
 </script>
 

@@ -7,18 +7,18 @@ const routes = [
     name: "Home",
     component: PokemonHome,
   },
-  // {
-  //   path: "/pokemon/:id/:name",
-  //   name: "pokemon.detail",
-  //   // lazy loaded route with dynamic importing
-  //   component: () => import("./views/PokemonDetail.vue"),
-  //   props: true,
-  // },
-  // {
-  //   path: "/:pathMatch(.*)*",
-  //   name: "Not Found",
-  //   component: () => import("./views/NotFound.vue"),
-  // },
+  {
+    path: "/pokemon/:id/:name",
+    name: "pokemon.detail",
+    // lazy loaded route with dynamic importing
+    component: () => import("./views/PokemonDetail.vue"),
+    props: true,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "Not Found",
+    component: () => import("./views/NotFound.vue"),
+  },
 ];
 
 export const router = createRouter({
