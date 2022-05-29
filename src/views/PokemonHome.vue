@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { apis } from "../store/apis";
-import SearchContainer from "@/components/SearchContainer.vue";
+import SearchContainer from "../components/SearchContainer.vue";
 // import SearchBar from "@/components/SearchBar.vue";
 
 const apiUrl = ref(apis.baseUrl);
