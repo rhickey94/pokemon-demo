@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from "vue";
-// import { apis } from "../store/apis.mjs";
+import { apis } from "../store/apis.mjs";
 import SearchContainer from "../components/SearchContainer.vue";
 // import SearchBar from "@/components/SearchBar.vue";
 
-// const apiUrl = ref(apis.baseUrl);
+const apiUrl = ref(apis.baseUrl);
 // const searchUrl = ref("");
 
 // function setSearchUrl(url) {
