@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { apis } from "../store/apis";
+import { apis } from "../store/apis.js";
 import SearchContainer from "../components/SearchContainer.vue";
 // import SearchBar from "@/components/SearchBar.vue";
 

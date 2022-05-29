@@ -1,5 +1,5 @@
 <script setup>
-import { apis } from "../store/apis";
+import { apis } from "../store/apis.js";
 import { ref, computed, onMounted } from "vue";
 
 const props = defineProps({
