@@ -2,6 +2,7 @@
 import { apis } from "../store/apis";
 import { ref, computed, onMounted } from "vue";
 import PokemonHeader from "../components/PokemonHeader.vue";
+import ContainerItem from "../components/ContainerItem.vue";
 
 const props = defineProps({
   id: { type: String, required: true },
@@ -28,29 +29,88 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
+  <div class="pokemon-detail-container">
     <PokemonHeader />
-    <header>
-      <img src="" alt="pokemon" />
-      <h1>{{ name }}</h1>
-
-      <div>
-        <p>height</p>
-        <p>weight</p>
-        <p>abilities</p>
+    <div class="pokemon-detail">
+      <ContainerItem :pokemon-id="id" :pokemon-name="name" />
+      <div class="pokemon-info">
+        <p><span>Height</span><span>TBD</span></p>
+        <p><span>Weight</span><span>TBD</span></p>
+        <p><span>Ability</span><span>TBD</span></p>
       </div>
-      <div>
-        <h2>Stats</h2>
-        <p></p>
+      <h2>Stats</h2>
+      <div class="pokemon-info">
+        <p><span>HP</span><span>TBD</span></p>
+        <p><span>Attack</span><span>TBD</span></p>
+        <p><span>Defense</span><span>TBD</span></p>
+        <p><span>Spc. Attack</span><span>TBD</span></p>
+        <p><span>Spc. Defense</span><span>TBD</span></p>
+        <p><span>Speed</span><span>TBD</span></p>
       </div>
-      <div>
-        <h2>Types</h2>
+      <h2>Types</h2>
+      <div class="pokemon-info pokemon-types">
+        <span>TBD</span>
+        <span>TBD</span>
       </div>
-      <div>
-        <h2>Moves</h2>
+      <h2>Moves</h2>
+      <div class="pokemon-info">
+        <div class="pokemon-move">
+          <h3>Move</h3>
+          <p>Accuracy</p>
+          <p>PP</p>
+          <p>Power</p>
+          <p>Type</p>
+        </div>
+        <div class="pokemon-move">
+          <h3>Move</h3>
+          <p>Accuracy</p>
+          <p>PP</p>
+          <p>Power</p>
+          <p>Type</p>
+        </div>
+        <div class="pokemon-move">
+          <h3>Move</h3>
+          <p>Accuracy</p>
+          <p>PP</p>
+          <p>Power</p>
+          <p>Type</p>
+        </div>
       </div>
-    </header>
+    </div>
   </div>
 </template>
 
-<style></style>
+<style>
+.pokemon-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokemon-info {
+  background-color: var(--color-background);
+  box-shadow: var(--box-shadow-def);
+  padding: 5px 20px;
+  width: 90%;
+}
+
+.pokemon-info > p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pokemon-types {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pokemon-move {
+  box-shadow: var(--box-shadow-def);
+  padding: 10px 15px;
+  margin: 5px;
+}
+
+p {
+  font-size: 0.75rem;
+}
+</style>

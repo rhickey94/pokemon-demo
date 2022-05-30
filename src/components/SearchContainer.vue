@@ -39,9 +39,9 @@ async function loadMore() {
   }
 }
 
-function setSearchUrl(url) {
-  console.log(url);
-}
+// function setSearchUrl(url) {
+//   console.log(url);
+// }
 
 onBeforeMount(() => {
   currentUrl.value = props.apiUrl;
@@ -56,7 +56,6 @@ onBeforeMount(() => {
       :key="pokemon.id"
       :pokemon-id="pokemon.id"
       :pokemon-name="pokemon.name"
-      @click="setSearchUrl(pokemon.url)"
     />
     <ScrollTrigger @trigger-intersected="loadMore" />
   </section>
