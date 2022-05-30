@@ -32,13 +32,13 @@ onDeactivated(() => {
 </script>
 
 <template>
-  <div class="scroll-trigger" ref="trigger"></div>
+  <div class="infinite-trigger" ref="trigger"></div>
 </template>
 
 <style>
-.scroll-trigger {
-  width: 0;
+.infinite-trigger {
   height: 0;
   margin: 0;
+  padding: 0;
 }
 </style>

@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from "vue";
-import { apis } from "../store/apis.js";
-import SearchContainer from "../components/SearchContainer.vue";
+import { apis } from "../store/apis";
+import PokemonHeader from "../components/PokemonHeader.vue";
+import SearchContainer from "@/components/SearchContainer.vue";
 // import SearchBar from "@/components/SearchBar.vue";
 
 const apiUrl = ref(apis.baseUrl);
@@ -14,7 +15,7 @@ const apiUrl = ref(apis.baseUrl);
 
 <template>
   <div id="home-container">
-    <h1 class="heading">Pokemon Demo</h1>
+    <PokemonHeader />
     <!-- <SearchBar @set-search-url="setSearchUrl" :api-url="apiUrl" /> -->
     <SearchContainer :api-url="apiUrl" />
   </div>
