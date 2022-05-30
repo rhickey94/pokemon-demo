@@ -20,7 +20,13 @@ const spriteUrl = computed(() => {
     }"
   >
     <section class="pokemon-content">
-      <img class="pokemon-sprite" :src="spriteUrl" alt="" />
+      <img
+        class="pokemon-sprite"
+        :src="spriteUrl"
+        height="96"
+        width="96"
+        alt=""
+      />
       <div class="pokemon-name">{{ pokemonName }}</div>
     </section>
   </router-link>
@@ -28,27 +34,23 @@ const spriteUrl = computed(() => {
 
 <style>
 .pokemon-content {
-  background-color: white;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+  background-color: var(--color-background);
+  box-shadow: var(--box-shadow-def);
   border-radius: 8px;
   width: 200px;
+  height: 200px;
   padding-bottom: 5px;
-  margin-bottom: 5px;
   text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
 }
 
 .pokemon-name {
-  font-size: 1rem;
+  color: var(--text-light-1);
   text-align: center;
   padding: 5px;
-}
-
-.pokemon-type {
-  font-size: 0.65rem;
-  text-align: center;
-}
-
-.pokemon-sprite {
-  display: block;
 }
 </style>

@@ -65,8 +65,9 @@ onBeforeMount(() => {
 <style>
 .search-container {
   max-width: 60%;
-
   display: flex;
   flex-flow: row wrap;
+  margin: 0 auto;
+  justify-content: center;
 }
 </style>

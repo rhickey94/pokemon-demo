@@ -1,6 +1,7 @@
 <script setup>
 import { apis } from "../store/apis";
 import { ref, computed, onMounted } from "vue";
+import PokemonHeader from "../components/PokemonHeader.vue";
 
 const props = defineProps({
   id: { type: String, required: true },
@@ -28,6 +29,7 @@ onMounted(() => {
 
 <template>
   <div>
+    <PokemonHeader />
     <header>
       <img src="" alt="pokemon" />
       <h1>{{ name }}</h1>

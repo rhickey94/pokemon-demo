@@ -32,7 +32,13 @@ onDeactivated(() => {
 </script>
 
 <template>
-  <div ref="trigger"></div>
+  <div class="infinite-trigger" ref="trigger"></div>
 </template>
 
-<style></style>
+<style>
+.infinite-trigger {
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+</style>
