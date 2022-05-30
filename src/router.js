@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import PokemonHome from "@/views/PokemonHome.vue";
+import PokemonHome from "./views/PokemonHome.vue";
 
 const routes = [
   {
@@ -11,13 +11,13 @@ const routes = [
     path: "/pokemon/:id/:name",
     name: "pokemon.detail",
     // lazy loaded route with dynamic importing
-    component: () => import("@/views/PokemonDetail.vue"),
+    component: () => import("./views/PokemonDetail.vue"),
     props: true,
   },
   {
     path: "/:pathMatch(.*)*",
     name: "Not Found",
-    component: () => import("@/views/NotFound.vue"),
+    component: () => import("./views/NotFound.vue"),
   },
 ];
 

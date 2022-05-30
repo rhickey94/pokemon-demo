@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import { apis } from "../store/apis";
+import { apis } from "../store/apis.js";
 
 const props = defineProps({
   pokemonId: String,

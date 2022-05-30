@@ -1,5 +1,5 @@
 <script setup>
-import { apis } from "../store/apis";
+import { apis } from "../store/apis.js";
 import { ref, computed, onMounted } from "vue";
 import PokemonHeader from "../components/PokemonHeader.vue";
 import ContainerItem from "../components/ContainerItem.vue";

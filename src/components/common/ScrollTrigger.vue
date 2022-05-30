@@ -7,7 +7,7 @@ const trigger = ref(null);
 const observerOptions = {
   type: Object,
   default: {
-    threshold: "0",
+    threshold: "1",
   },
 };
 
