@@ -1,8 +1,12 @@
-<script setup></script>
+<script setup>
+import { usePokemonDetailStore } from "../stores/PokemonDetailStore";
+
+const pokemonDetailStore = usePokemonDetailStore();
+</script>
 
 <template>
   <div class="header">
-    <router-link to="/">
+    <router-link @click="pokemonDetailStore.$reset()" to="/">
       <h1 class="heading">Pokemon Demo</h1>
     </router-link>
   </div>
