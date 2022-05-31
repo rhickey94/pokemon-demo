@@ -1,0 +1,1 @@
+import{g as n,a as s,e,b as a,w as r,h as o,r as c,o as _}from"./index.266d9314.js";const l={},d=e("h1",null,"Not Found",-1),i=e("p",null,"Oops, we couldn't find that page!",-1),u=o("Try going "),p=o("Home");function h(f,m){const t=c("router-link");return _(),s("div",null,[d,i,e("p",null,[u,a(t,{to:"/"},{default:r(()=>[p]),_:1})])])}var N=n(l,[["render",h]]);export{N as default};

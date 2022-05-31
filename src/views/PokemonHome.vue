@@ -5,7 +5,7 @@ import PokemonHeader from "../components/PokemonHeader.vue";
 import SearchContainer from "@/components/SearchContainer.vue";
 // import SearchBar from "@/components/SearchBar.vue";
 
-const apiUrl = ref(apis.baseUrl);
+const apiUrl = ref(`${apis.baseUrl}?limit=40`);
 // const searchUrl = ref("");
 
 // function setSearchUrl(url) {
