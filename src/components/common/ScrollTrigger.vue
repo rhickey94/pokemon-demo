@@ -32,13 +32,18 @@ onDeactivated(() => {
 </script>
 
 <template>
-  <div class="infinite-trigger" ref="trigger"></div>
+  <div class="infinite-trigger" ref="trigger">
+    <font-awesome-icon icon="spinner" size="2x" fixed-width pulse />
+    <!-- <i class="fa-solid fa-sync fa-spin fa-2xl"></i> -->
+  </div>
 </template>
 
 <style>
 .infinite-trigger {
-  height: 0;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
 }
 </style>

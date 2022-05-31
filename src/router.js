@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import PokemonHome from "./views/PokemonHome.vue";
 
+import { usePokemonDetailStore } from "./stores/PokemonDetailStore";
+
 const routes = [
   {
     path: "/",
@@ -27,4 +29,9 @@ export const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
     return savedPosition || { top: 0 };
   },
+});
+
+router.beforeEach(() => {
+  const pokemonDetailStore = usePokemonDetailStore();
+  pokemonDetailStore.$reset();
 });
