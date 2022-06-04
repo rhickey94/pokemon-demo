@@ -4,7 +4,35 @@ export const usePokemonDetailStore = defineStore("PokemonDetailStore", {
   state: () => {
     return {
       rawPokemonData: null,
-      pokemonData: {},
+      pokemonData: {
+        abilities: [{ ability: { name: "" } }],
+        stats: {
+          hp: {
+            base_stat: "",
+            url: "",
+          },
+          attack: {
+            base_stat: "",
+            url: "",
+          },
+          defense: {
+            base_stat: "",
+            url: "",
+          },
+          speed: {
+            base_stat: "",
+            url: "",
+          },
+          "special-attack": {
+            base_stat: "",
+            url: "",
+          },
+          "special-defense": {
+            base_stat: "",
+            url: "",
+          },
+        },
+      },
     };
   },
   actions: {
